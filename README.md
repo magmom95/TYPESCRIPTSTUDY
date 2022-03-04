@@ -61,6 +61,67 @@
 
 - 이렇게 해도 가능
 
+
+</details>
+
+---
+
+<details markdown="1">
+<summary>❓ 타입을 미리 정하기 애매할 때</summary>
+
+- 타입 정하기 어려우면 **union type** 을 사용
+
+``` javascript
+    let name: string | number = 'Lee';
+    let age: (string | number) = 28;
+```
+
+- 할당하는 순간 object 자료에 number string이 들어옴
+
+``` javascript
+    var array: (number | string)[] = [1,'2',3]
+    var object: {data : (number | string) } = { data : '123' }
+```
+
+- array, object에 정의된 Union 타입은 OR 연산자가 유지
+
+⚠ any 타입도 존재 
+
+``` javascript
+    let name: any = 'Lee';
+    name = 123;
+    name = undefined;
+    name = [];
+```
+
+- 에러가 나지 않지만 실드를 안씌우는 효과를 줌
+
+- 변수 타입체크 해제기능 용도로만 사용 
+
+✔ any 보다는 unknown 타입
+
+``` javascript
+    let name: unknown = 'Lee';
+    name = 123;
+    name = undefined;
+    name = [];
+```
+
+- 1. unknown 타입엔 모든 자료 다 집어넣을 수 있음
+
+- 2. 자료집어넣어도 타입은 그대로 unknown
+
+📌 이 코드는 오류
+
+``` javascript
+    let age: unknown = 1;
+    age + 1;
+```
+
+- unkown은 새로운 타입을 하나 만드는것 (즉 number 타입이 아니라 연산 불가)
+
+- union type도 이왕 동일
+
 </details>
 
 ---
