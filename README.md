@@ -22,6 +22,7 @@
 <details markdown="1">
 <summary>✨ 타입 정하기</summary>
 <br>
+
 - **타입스크립트**는 **변수**만들 때 **변수의 타입** 지정 가능
 
 ``` javascript
