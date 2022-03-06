@@ -120,7 +120,56 @@
 
 - unkown은 새로운 타입을 하나 만드는것 (즉 number 타입이 아니라 연산 불가)
 
-- union type도 이왕 동일
+- union type도 이 동일
+
+</details>
+
+---
+
+<details markdown="1">
+<summary> 📐함수 형식</summary>
+
+<br>
+
+- 함수는 총 두 군데 타입지정 가능 
+
+1. 함수로 들어오는 자료 (파라미터)
+
+2. 함수에서 나가는 자료 (return)
+
+``` javascript
+    function test(x :number) :number { 
+    return x * 2 
+} 
+```
+
+1. 함수로 들어오는 파라미터 타입지정은 파라미터 옆에 적으면 됨
+
+2. 함수가 실행된 후 남는 값 (return 우측에 있는 값) 타입지정하고 싶으면 함수명() 우측에 적으면 됨
+
+``` javascript
+    function test(x :number) :void { 
+  return x * 2 //여기서 에러남 
+} 
+```
+
+- return 값이 없을 때
+
+``` javascript
+    function test(x? :number) { 
+
+} 
+```
+
+- 옵션도 가능 (x : number | undefined 라는 의미)
+
+``` javascript
+    function test(x :number | string) :number { 
+    return x.toString().length 
+} 
+```
+
+- 자릿수 세기 함수
 
 </details>
 
