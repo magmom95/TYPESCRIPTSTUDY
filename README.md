@@ -174,3 +174,54 @@
 </details>
 
 ---
+
+<details markdown="1">
+<summary>🏴 Type Narrowing</summary>
+
+<br>
+
+- if문 등으로 타입을 하나로 정해주는 것
+
+``` javascript
+    function test(x :number | string){
+      if (typeof x === 'number') {
+        return x + 1
+      } 
+      else if (typeof x === 'string') {
+        return x + 1
+      }
+      else {
+        return 0
+          }
+        }
+    } 
+```
+
+- if문과 typeof 키워드로 현재 파라미터의 타입을 검사 
+
+- 꼭 typeof를 쓸 필요는 없고 타입을 하나로 확정지을 수 있는 코드라면 어떤 것도 Narrowing 역할 가능 (in, instanceof 사용가능)
+
+``` javascript
+    function test(x :number | string){ 
+        return (x as number) + 1 
+    }
+    console.log( test(123) )
+```
+
+- as를 통해 타입 변경 가능
+
+1. as 키워드는 union type 같은 복잡한 타입을 하나의 정확한 타입으로 줄이는 역할을 수행 (number 타입을 as string 이렇게 바꾸려고 하면 에러남)
+
+2. 실은 그냥 타입실드 임시 해제용 실제 코드 실행결과는 as 있을 때나 없을 때나 거의 동일
+
+✔ as는 타입을 실제로 바꿔 주는 역할이 아님
+
+⚠ as는 언제 사용 하는가?
+
+1. 왜 타입에러가 나는지 정말 모르겠는 상황에 임시로 에러해결용으로 사용하거나
+
+2. 내가 어떤 타입이 들어올지 정말 확실하게 알고 있는데 컴파일러 에러가 방해할 때
+
+</details>
+
+---
