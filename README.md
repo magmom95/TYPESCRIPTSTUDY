@@ -6,7 +6,7 @@
 
 - 자바스크립트는 Dynamic typing 을 지원하는 언어이므로 대규모 프로젝트 경우에 오류를 찾기 힘듬
 
-✔ Dynamic typing 이란
+✔ Dynamic typing 이란?
 
 - 런타임에 타입이 결정되는 언어 즉, 소스가 빌드될 때 자료형을 결정하는 것이 아니라 실행 시 결정
 
@@ -221,6 +221,37 @@
 1. 왜 타입에러가 나는지 정말 모르겠는 상황에 임시로 에러 해결용으로 사용하거나
 
 2. 내가 어떤 타입이 들어올지 정말 확실하게 알고 있는데 컴파일러 에러가 방해할 때 사용
+
+</details>
+
+---
+
+<details markdown="1">
+<summary>💢 타입 정의가 너무 길면?</summary>
+
+``` javascript
+let test :string | number | undefined;
+```
+
+- 이게 길고 보기 싫거나 재사용을 하고 싶을 때 = **변수**에 담아 사용 (**type alias**)
+
+``` javascript
+type test :string | number | undefined;
+let go :test;
+```
+
+- **type 타입변수명 = 타입종류** 로 표현
+
+``` javascript
+type lee = {
+  name : string,
+  age : number,
+}
+
+let teacher :lee = { name : 'john', age : 20 }
+```
+
+- object 타입도 저장 가능
 
 </details>
 
