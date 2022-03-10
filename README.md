@@ -229,6 +229,8 @@
 <details markdown="1">
 <summary>💢 타입 정의가 너무 길면?</summary>
 
+<br>
+
 ``` javascript
 let test :string | number | undefined;
 ```
