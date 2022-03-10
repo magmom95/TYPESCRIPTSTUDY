@@ -242,16 +242,36 @@ let go :test;
 
 - **type 타입변수명 = 타입종류** 로 표현
 
+- object 타입도 저장 가능
+
 ``` javascript
-type lee = {
-  name : string,
-  age : number,
+type friend = {
+  readonly name : string,
 }
 
-let teacher :lee = { name : 'john', age : 20 }
+let test :friend = {
+  name : 'Lee'
+}
+
+test.name = 'lee' //readonly라서 에러남
 ```
 
-- object 타입도 저장 가능
+- readonly 키워드는 속성 왼쪽에 붙여 속성을 변경불가능하게 잠금
+
+``` javascript
+type Name = string;
+type Age = number;
+type NewOne = Name | Age;
+```
+
+- 물음표 연산자(undefined 라는 타입), Union type도 가능
+
+``` javascript
+type Name = string;
+type Name = number;
+```
+
+- type 재정의는 불가 
 
 </details>
 
