@@ -278,3 +278,52 @@ type Name = number;
 </details>
 
 ---
+
+<details markdown="1">
+<summary>🚩 Const 변수 유사품</summary>
+
+<br>
+
+``` javascript
+var book = {
+  name : 'lee'
+}
+
+function test(a : 'lee') {
+
+}
+test(book.name)
+```
+
+- 오류가 남 ( **lee** 타입만 입력할 수 있다고 해놨고 **book.name** 이라는건 string 타입이지 **lee**타입이 아니기 떄문!!)
+
+- 해결 방법
+
+1. object 만들 때 타입을 잘 미리 정하든가 
+
+2. assertion을 사용
+
+3. 아니면 as const 라는걸 애초에 object 자료에 붙임
+
+``` javascript
+var book = {
+  name : 'lee'
+} as const;
+
+function test(a : 'lee') {
+
+}
+test(book.name)
+```
+
+- as const 효과가 2개 
+
+1. 타입을 object의 value로 바꿔 줌 (타입을 'lee'으로 바꿔 줌)
+
+2. object안에 있는 모든 속성을 readonly로 바꿔 줌 (변경하면 에러나게)
+
+✔ object를 잠그고 싶으면 as const
+
+</details>
+
+---
