@@ -324,6 +324,23 @@ test(book.name)
 
 ✔ object를 잠그고 싶으면 as const
 
+- Function type 도 저장 가능
+
+``` javascript
+type NumOut = (x : number, y : number ) => number ;
+```
+
+- 이런 식으로 함수도 저장 가능
+
+``` javascript
+type NumOut = (x : number, y : number ) => number 
+let ABC :NumOut = function(x,y){
+  return x + y
+}
+```
+
+- 응용 가능
+
 </details>
 
 ---
