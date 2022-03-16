@@ -344,3 +344,28 @@ let ABC :NumOut = function(x,y){
 </details>
 
 ---
+
+<details markdown="1">
+<summary>🎨 함수와 methods에 type alias 지정</summary>
+
+<br>
+
+``` javascript
+type NumOut = (x : number, y : number ) => number ;
+}
+```
+
+- 이런 식으로 표현 가능
+
+``` javascript
+type NumOut = (x : number, y : number ) => number ;
+let ABC :NumOut = function(x,y){
+  return x + y
+}
+```
+
+- **함수명 : 타입별명** 표현
+
+</details>
+
+---
