@@ -364,7 +364,7 @@ let ABC :NumOut = function(x,y){
 }
 ```
 
-- **함수명 : 타입별명** 표현
+- **함수명 : 타입별명** 으로 선언
 
 </details>
 
