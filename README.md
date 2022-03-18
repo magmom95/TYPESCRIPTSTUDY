@@ -366,6 +366,24 @@ let ABC :NumOut = function(x,y){
 
 - **함수명 : 타입별명** 으로 선언
 
+``` javascript
+let member = {
+  name : 'lee',
+  age : 28,
+  plusOne (x){
+    return x + 1
+  },
+  changeName : () => {
+    console.log('안녕')
+  }
+}
+member.plusOne(1);
+member.changeName();
+}
+```
+
+- 함수도 자료안에 보관하고 싶을 때 사용
+
 </details>
 
 ---
