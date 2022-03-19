@@ -384,6 +384,17 @@ member.changeName();
 
 - 함수도 자료안에 보관하고 싶을 때 사용
 
+``` javascript
+class Person {
+  data :number = 0;
+}
+
+let lee = new Person();
+lee.data = '1';  //문자 할당시 에러
+```
+
+- class 형식도 가능
+
 </details>
 
 ---
