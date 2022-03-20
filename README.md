@@ -395,6 +395,30 @@ lee.data = '1';  //문자 할당시 에러
 
 - class 형식도 가능
 
+``` javascript
+class Person {
+  name;
+  age;
+  constructor ( a :string ){
+    this.name = a;
+    this.age = 28;
+  }
+}
+```
+
+- constructor 타입 지정
+
+``` javascript
+class Person {
+  
+  add(숫자){
+    console.log(숫자 + 1)
+  }
+}
+```
+
+- methods 타입지정
+
 </details>
 
 ---
