@@ -422,3 +422,70 @@ class Person {
 </details>
 
 ---
+
+<details markdown="1">
+<summary>🐱‍🐉 Object에 쓸 수 있는 interface </summary>
+
+<br>
+
+``` javascript
+interface Square { 
+  color :string, 
+  width :number, 
+} 
+
+let test :Square = { color : 'red', width : 100 } 
+
+```
+
+- type을 정의할 때 interface를 사용 가능
+
+- 대문자로 작명하고 {} 안에 타입을 명시 
+
+✔ interface 장점은 extends가 가능 (상속)
+
+``` javascript
+interface Student {
+  name :string,
+}
+interface Teacher extends Student {
+  age :number
+}
+} 
+```
+
+⚠ type 선언과 interface에 차이점
+
+- **type**은 새로운 속성을 추가하기 위해서 다시 같은 이름으로 선언할 수 없지만, **interface**는 항상 선언적 확장이 가능
+
+``` javascript
+interface Window {
+  title: string
+}
+
+interface Window {
+  ts: TypeScriptAPI
+}
+
+// 같은 interface 명으로 Window를 다시 만든다면, 자동으로 확장이 됨
+
+const src = 'const a = "Hello World"'
+window.ts.transpileModule(src, {})
+```
+
+``` javascript
+type Window = {
+  title: string
+}
+
+type Window = {
+  ts: TypeScriptAPI
+}
+
+// Error: Duplicate identifier 'Window'.
+// 타입은 안됨
+```
+
+</details>
+
+---
