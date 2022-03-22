@@ -489,3 +489,24 @@ type Window = {
 </details>
 
 ---
+
+<details markdown="1">
+<summary>🐱‍👤 never타입 이란?</summary>
+
+<br>
+
+``` javascript
+function 함수() :never{
+  while ( true ) {
+    console.log(123)
+  }
+}
+```
+
+- 조건 1) 절대 return을 하지 않아야하고 (void같은거)
+
+- 조건 2) 함수 실행이 끝나지 않아야합니다 (전문용어로 endpoint가 없어야 함)
+
+</details>
+
+---
