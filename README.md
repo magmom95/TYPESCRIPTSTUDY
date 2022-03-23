@@ -510,3 +510,81 @@ function 함수() :never{
 </details>
 
 ---
+
+<details markdown="1">
+<summary>📸 Generic타입 이란?</summary>
+
+<br>
+
+``` javascript
+function test(x: unknown[]) {
+  return x[0];
+}
+
+let a = test([4,2])
+console.log(a) 
+```
+
+- array도 unknown 타입이라 4가 출력
+
+``` javascript
+function test(x: unknown[]) {
+  return x[0];
+}
+
+let a = test([4,2])
+console.log(a + 1) 
+```
+
+- unknown 타입이라 연산도 에러 그래서 나온것이 Generic 함수
+
+``` javascript
+function test<T>(x: T[]) :T {
+  return x[0];
+}
+
+let a = test<number>([4,2])
+let b = test<string>(['kim', 'park']) 
+```
+
+- Generic을 쓰면 여러분이 정한 타입을 return 값으로 뱉는 함수를 제작가능
+
+``` javascript
+function test<T>(x: T) {
+  return x - 1
+}
+
+let a = test<number>(100)
+```
+
+- return 문에 혹시 다른문자가 나오면 에러가 나옴
+
+``` javascript
+function test<T extends number>(x: T) {
+  return x - 1
+}
+
+let a = test<number>(100)
+```
+
+- T extends number 를 사용 타입 파라미터에 넣을 수 있는 타입을 제한 
+
+``` javascript
+interface lengthCheck {
+  length : number
+}
+function test<T extends lengthCheck>(x: T) {
+  return x.length
+}
+
+let a = test<string>('hello')  //가능
+let a = test<number>(1234) //에러남
+```
+
+- extends 를 통해 length 속성을 복사해서 가짐
+
+- length가 분명히 있기 때문에 x는 .length 조작이 가능 함
+
+</details>
+
+---
