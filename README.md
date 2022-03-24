@@ -588,3 +588,70 @@ let a = test<number>(1234) //에러남
 </details>
 
 ---
+
+<details markdown="1">
+<summary>🎆 React에 typescript를 적용</summary>
+
+<br>
+
+```shell
+npx create-react-app 프로젝트명 --template typescript 
+```
+
+- 리액트 프로젝트를 설치하면서 타입스크립트를 사용
+
+```shell
+npm install --save typescript @types/node @types/react @types/react-dom @types/jest
+```
+
+- 이미 만든 프로젝트는 보는거와 같이 작성
+
+![image](https://user-images.githubusercontent.com/64140544/159925935-c9d34ab8-5b49-464b-87a8-d5169c993da2.png)
+
+- 위와 같이 파일들이 형성 
+
+1. 일반 변수, 함수 타입 지정은 기존과 같음
+
+2. JSX 타입지정
+
+``` javascript
+let box :JSX.Element = <div></div>
+let button :JSX.Element = <button></button>
+```
+    
+``` javascript
+let box :JSX.IntrinsicElements['div'] = React.createElement('div');
+let button :JSX.IntrinsicElements['button'] = <button></button>;
+```
+
+3. function component 타입 지정
+
+``` javascript
+type AppProps = {
+  name: string;
+}; 
+
+function App (props: AppProps) :JSX.Element {
+  return (
+    <div>{message}</div>
+  )
+}
+// <div> <a> <h4> 같은 기본 태그들은 JSX.IntrinsicElements 라는 이름의 타입을 사용
+```
+
+4. state 문법 사용시 타입지정 
+
+``` javascript
+const [user, setUser] = useState<string | null>('lee'); 
+// <>Generic문법을 이용 useState함수에 집어넣음
+```
+
+5. type assertion 문법 사용할 때 
+
+``` javascript
+let code: any = 123; 
+let employeeCode = <number> code; //안됨
+```
+</details>
+
+---
