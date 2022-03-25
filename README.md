@@ -652,6 +652,66 @@ const [user, setUser] = useState<string | null>('lee');
 let code: any = 123; 
 let employeeCode = <number> code; //안됨
 ```
+
+🎇 redux에 typescript를 적용하는 법
+
+``` javascript
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+
+interface Counter {
+  count : number
+}
+
+const 초기값 :Counter  = { count: 0 };
+
+function reducer(state = 초기값, action :any) {
+  if (action.type === '증가') {
+    return { count : state.count + 1 }
+  } else if (action.type === '감소'){
+    return { count : state.count - 1 }
+  } else {
+    return initialState
+  }
+}
+
+const store = createStore(reducer);
+
+// store의 타입 미리 export 해두기 
+export type RootState = ReturnType<typeof store.getState>
+
+ReactDOM.render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById('root')
+) 
+```
+
+- state를 꺼낼 때
+
+``` javascript
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux'
+import { Dispatch } from 'redux'
+import {RootState} from './index'
+
+function App() {
+  const 꺼내온거 = useSelector( (state :RootState) => state );
+  const dispatch :Dispatch = useDispatch();
+
+  return (
+    <div className="App">
+      { 꺼내온거.count }
+      <button onClick={()=>{dispatch({type : '증가'})}}>버튼</button>
+      <Profile name="kim"></Profile>
+    </div>
+  );
+} 
+```
+
 </details>
 
 ---
