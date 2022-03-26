@@ -712,6 +712,93 @@ function App() {
 } 
 ```
 
+- 신규방식 redux
+
+```shell
+npm install @reduxjs/toolkit  
+```
+
+- 이런식으로 표현 가능
+
+``` javascript
+import { createSlice, configureStore } from '@reduxjs/toolkit';
+import { Provider } from 'react-redux';
+
+const 초기값 = { count: 0, user : 'kim' };
+
+const counterSlice = createSlice({
+  name: 'counter',
+  initialState : 초기값,
+  reducers: {
+    increment (state){
+      state.count += 1
+    },
+    decrement (state){
+      state.count -= 1
+    },
+    incrementByAmount (state, action :any){
+      state.count += action.payload
+    }
+  }
+})
+
+let store = configureStore({
+  reducer: {
+    counter1 : counterSlice.reducer
+  }
+})
+
+//state 타입을 export 해두는건데 나중에 쓸 데가 있음
+export type RootState = ReturnType<typeof store.getState>
+
+//수정방법 만든거 export
+export let {increment, decrement, incrementByAmount} = counterSlice.actions
+```
+
+- 타입 지정은 아래와 같음
+
+1. state 초기값 타입지정 알아서 
+
+2. reducer 안의 action 파라미터의 타입지정
+
+3. 나머지는 자동 
+
+- action 타입은 아래와 같이 지정  
+
+```javascript
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+
+(상단 생략)
+  incrementByAmount (state, action: PayloadAction<number>){
+      state.value += action.payload
+  },
+```
+
+- state를 꺼낼 때 
+
+```javascript
+import { useDispatch, useSelector } from 'react-redux'
+import {RootState, increment} from './index'
+
+function App() {
+
+  const 꺼내온거 = useSelector( (state :RootState) => state);
+  const dispatch = useDispatch();
+
+  return (
+    <div className="App">
+      {꺼내온거.counter1.count}
+      <button onClick={()=>{dispatch(increment())}}>버튼</button>
+    </div>
+  );
+} 
+
+```
+
+1. useSelector 함수를 쓰면 state를 쉽게 꺼낼 수 있음
+
+2. useDispatch 함수를 쓰면 쉽게 수정요청을 날릴 수 있음
+
 </details>
 
 ---
