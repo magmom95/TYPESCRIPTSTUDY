@@ -797,7 +797,17 @@ function App() {
 
 1. useSelector 함수를 쓰면 state를 쉽게 꺼낼 수 있음
 
+- state가 어떻게 생겼는지 파악한 다음 타입알아서 손수 지정
+
+- index.ts에서 타입을 export 해서 가져 옴 
+
+- index.ts 에 있던 export type RootState = ReturnType<typeof store.getState> 가 store의 타입을 미리 export 해두는 방법
+    
 2. useDispatch 함수를 쓰면 쉽게 수정요청을 날릴 수 있음
+
+- import {Dispatch} from 'redux' 이렇게 타입을 가져와서 const dispatch :Dispatch 
+
+- dispatch 날릴 때 안에 파라미터 안쓰면 에러내줌 
 
 </details>
 
