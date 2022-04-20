@@ -807,7 +807,7 @@ function App() {
 
 - import {Dispatch} from 'redux' 이렇게 타입을 가져와서 const dispatch :Dispatch 
 
-- dispatch 날릴 때 안에 파라미터 안쓰면 에러내줌 
+- dispatch 날릴 때 안에 파라미터 안쓰면 에
 
 </details>
 
