@@ -18,8 +18,6 @@
 
 🚩 대규모 프로젝트에서 오류가 났을때 타입스크립트는 Dypnamic 하지 않으므로 오류를 친절하게 알려줌
 
-https://slow-roadway-59f.notion.site/TS-e885c03215554673b79259c4642061f9
-
 ---
 <details markdown="1">
 <summary>✨ 타입 정하기</summary>
